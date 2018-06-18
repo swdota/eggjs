@@ -12,14 +12,32 @@
 module.exports = app => {
   class HomeController extends app.Controller {
     * index() {
-      yield this.ctx.render('index.tpl');
+      var data = yield this.app.mysql.query('SELECT * FROM demo');
+      yield this.ctx.render('todoIndex.tpl', {task: data});
     }
 
     * add() {
-      // const data = this.ctx;
-      // console.log(data,'data');
       const result = yield this.service.mysql.add();
-      this.ctx.body = 'success';
+      this.ctx.redirect('/');
+
+    }
+
+    * edit() {
+      const id = this.ctx.params.id;
+      var task = yield this.app.mysql.get('demo', { id: id });
+      yield this.ctx.render('edit.tpl', {todo: task});
+    }
+    * update() {
+      const data = this.ctx.request.body;
+      console.log(data,'data.id');
+      var task = yield this.app.mysql.query('update demo set task =  ? where id = ?', [data.task, data.id]);
+      this.ctx.redirect('/');
+    }
+    * delete() {
+      const dataid = this.ctx.params.id;
+      var task = yield this.app.mysql.query(`DELETE FROM demo WHERE id = ${dataid}`);
+      this.ctx.redirect('/');
+
     }
   }
   return HomeController;

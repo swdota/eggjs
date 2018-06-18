@@ -3,14 +3,15 @@ module.exports = app => {
         * add() {
            // const data = this.ctx.params.data;
            const data = this.ctx.request.body
-           console.log(data,'datadata');
-           const result = yield this.app.mysql.insert('demo',{un:data.username,ps:data.password});
-           console.log(result,'resultresultresult');
-           if(result.serverStatus == 2){
-                return "success";
-           }else{
-               return "fail";
-           }
+           const cTime = Date.now()
+           const uTime = Date.now()
+           const complete = false
+           const result = yield this.app.mysql.insert('demo',{
+             task:data.task,
+             // creatTime:cTime,
+             // upTime:uTime,
+             complete: complete,
+           });
         }
     }
 };
