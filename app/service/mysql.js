@@ -6,10 +6,11 @@ module.exports = app => {
            const cTime = Date.now()
            const uTime = Date.now()
            const complete = false
+           console.log(cTime,'cTime');
            const result = yield this.app.mysql.insert('demo',{
              task:data.task,
-             // creatTime:cTime,
-             // upTime:uTime,
+             crDate:cTime,
+             upDate:uTime,
              complete: complete,
            });
         }

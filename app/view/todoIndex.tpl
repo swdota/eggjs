@@ -43,11 +43,16 @@
       <!-- <td>{{task }}</td> -->
 
     {% for to in task %}
-      <tr class="">
+    {% if to.complete %}
+        {% set rowClass = "completed" %}
+    {% else %}
+        {% set rowClass = "" %}
+    {% endif %}
+      <tr class="{{ rowClass }}">
           <td>{{ loop.index }}</td>
           <td>{{ to.task}}</td>
-          <td>{{ to.creatTime}}</td>
-          <td>{{ to.upTime}}</td>
+          <td>{{ to.crDate}}</td>
+          <td>{{ to.upDate}}</td>
           <!-- <td>{{ to.task}}</td> -->
 
           <td>
