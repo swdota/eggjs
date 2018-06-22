@@ -52,7 +52,7 @@
           <td>{{ loop.index }}</td>
           <td>{{ to.task}}</td>
           <td>{{ to.crDate}}</td>
-          <td>{{ to.upDate}}</td>
+          <td>{{ to.uptime}}</td>
           <!-- <td>{{ to.task}}</td> -->
 
           <td>

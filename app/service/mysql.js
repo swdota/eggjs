@@ -10,7 +10,7 @@ module.exports = app => {
            const result = yield this.app.mysql.insert('demo',{
              task:data.task,
              crDate:cTime,
-             upDate:uTime,
+             uptime:uTime,
              complete: complete,
            });
         }
