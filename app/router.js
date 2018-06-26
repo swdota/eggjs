@@ -11,8 +11,8 @@ module.exports = app => {
   app.get('/todo/edit/:id','home.edit');
   app.post('/todo/update', 'home.update');
   app.get('/todo/delete/:id', 'home.delete');
-  app.get('/todo/delete/:id', 'home.delete');
   app.get('/todo/complete/:id', 'home.complete');
 
+  app.post('/uuyradd', 'source.add');
 
 };
