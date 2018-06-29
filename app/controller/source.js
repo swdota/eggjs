@@ -19,6 +19,28 @@ module.exports = app => {
     * add() {
       const result = yield this.service.sourcecrud.souceradd();
       var res = {
+        // success: true,
+        // mes: '',
+        data: result
+      }
+      this.ctx.body = res
+    }
+
+    * get() {
+      const offset = this.ctx.query.offset;
+      const limit = this.ctx.query.limit;
+      const result = yield this.service.sourcecrud.soucerget(offset,limit);
+      var res = {
+        // success: true,
+        // mes: '',
+        data: result
+      }
+      this.ctx.body = res
+    }
+
+    * upload() {
+      const result = yield this.service.sourcecrud.upload();
+      var res = {
         success: true,
         mes: '',
         data: result

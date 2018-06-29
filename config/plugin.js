@@ -15,7 +15,7 @@ exports.cors = {
   enable: true,
   package: 'egg-cors',
 };
-// exports.security = {
-//   enable: true,
-//   package: 'egg-security',
-// };
+exports.sendToWormhole = {
+  enable: true,
+  package: 'stream-wormhole',
+};

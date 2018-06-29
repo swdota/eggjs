@@ -14,5 +14,9 @@ module.exports = app => {
   app.get('/todo/complete/:id', 'home.complete');
 
   app.post('/uuyradd', 'source.add');
+  app.post('/upload', 'upload.uploadFile');
+  app.get('/uuyrget', 'source.get');
+
+  app.get('/phoneuuyr/:id', 'phone.get');
 
 };
