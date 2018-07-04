@@ -14,7 +14,7 @@ class UploadFormController extends Controller {
   async uploadFile() {
     const stream = await this.ctx.getFileStream();
     const filename = Date.now().toString() + path.extname(stream.filename).toLowerCase();
-    const target = path.join(this.config.baseDir, 'app/public/img', filename);
+    const target = path.join(this.config.baseDir, 'app/static/imgs', filename);
     const writeStream = fs.createWriteStream(target);
     try {
       await awaitWriteStream(stream.pipe(writeStream));
@@ -22,7 +22,7 @@ class UploadFormController extends Controller {
       await sendToWormhole(stream);
       throw err;
     }
-    var pathUrl = '/public/img/' + filename
+    var pathUrl = '/static/imgs/' + filename
     this.ctx.body = {
       url: pathUrl,
     }
