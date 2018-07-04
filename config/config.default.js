@@ -39,6 +39,10 @@ module.exports = appInfo => {
     prefix: '/static/',
     dir: path.join(appInfo.baseDir, 'app/public'),
   }
+  config.static = {
+    prefix: '/public/',
+    dir: path.join(appInfo.baseDir, 'app/public'),
+  }
   return config;
 };
 exports.security = {
