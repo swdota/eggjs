@@ -1,5 +1,5 @@
 'use strict';
-
+const path = require('path');
 module.exports = appInfo => {
   const config = {
       view: {
@@ -34,6 +34,10 @@ module.exports = appInfo => {
   config.cors = {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
     credentials: true,
+  }
+  config.static = {
+    prefix: '/static/',
+    dir: path.join(appInfo.baseDir, 'app/public'),
   }
   return config;
 };
