@@ -13,7 +13,7 @@ module.exports = appInfo => {
             host: 'localhost',
                port: '3306',
                user: 'root',
-               password: 'sw19900629',
+               password: '19900629',
                database: 'myone',
           },
           app: true,
@@ -42,3 +42,9 @@ exports.security = {
     enable: false,
   },
 };
+// module.exports = appInfo => ({
+//   view: {
+//     // 如果还有其他模板引擎，需要合并多个目录
+//     root: path.join(appInfo.baseDir, 'app/static'),
+//   },
+// });

@@ -13,7 +13,9 @@ module.exports = app => {
   class HomeController extends app.Controller {
     * index() {
       var data = yield this.app.mysql.query('SELECT * FROM demo');
-      yield this.ctx.render('todoIndex.tpl', {task: data});
+      // yield this.ctx.render('todoIndex.tpl', {task: data});
+      yield this.ctx.render('index.html');
+
     }
 
     * add() {
