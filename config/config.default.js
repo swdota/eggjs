@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = appInfo => {
   const config = {
       view: {
+          root: path.join(appInfo.baseDir, 'app/public'),
           defaultViewEngine: 'nunjucks',
           mapping: {
               '.tpl': 'nunjucks',
@@ -35,10 +36,12 @@ module.exports = appInfo => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
     credentials: true,
   }
-  config.static = {
-    prefix: '/static/',
-    dir: path.join(appInfo.baseDir, 'app/public'),
-  }
+  // config.static = {
+  //   prefix: '/static/',
+  //   dir: path.join(appInfo.baseDir, 'app/static'),
+  //
+  //   // dir: path.join(appInfo.baseDir, 'app/public'),
+  // }
   // config.static = {
   //   prefix: '/public/',
   //   dir: path.join(appInfo.baseDir, 'app/public'),
@@ -50,9 +53,3 @@ exports.security = {
     enable: false,
   },
 };
-// module.exports = appInfo => ({
-//   view: {
-//     // 如果还有其他模板引擎，需要合并多个目录
-//     root: path.join(appInfo.baseDir, 'app/static'),
-//   },
-// });
